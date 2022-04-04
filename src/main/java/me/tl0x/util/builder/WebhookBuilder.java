@@ -1,7 +1,7 @@
-package me.tl0x.util;
+package me.tl0x.util.builder;
 
-import me.tl0x.webhook.DiscordWebhook;
-import me.tl0x.webhook.EmbedObject;
+import me.tl0x.message.DiscordWebhook;
+import me.tl0x.util.EmbedObject;
 
 import java.util.ArrayList;
 import java.util.List;

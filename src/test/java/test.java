@@ -1,8 +1,7 @@
-import me.tl0x.util.WebhookBuilder;
-import me.tl0x.webhook.DiscordWebhook;
-import me.tl0x.webhook.EmbedObject;
+import me.tl0x.util.builder.WebhookBuilder;
+import me.tl0x.message.DiscordWebhook;
+import me.tl0x.util.EmbedObject;
 
-import java.awt.*;
 import java.io.IOException;
 
 // Literally my first time testing
@@ -16,7 +15,7 @@ public class test {
 
         DiscordWebhook webhook = new WebhookBuilder().username("Powerful Man")
                 .content("content is here")
-                .url("https://discord.com/api/webhooks/960190684671901726/hpv_EUNBMvxZs6B_-SiyeXDyivem6RwFXhbaUD3scZPDbV-Hk3q3ogHor7UUzstw3X0a")
+                .url("")
                 .addEmbed(embedFail)
                 .build();
 

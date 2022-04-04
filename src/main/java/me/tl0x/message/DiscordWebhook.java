@@ -1,6 +1,6 @@
-package me.tl0x.webhook;
+package me.tl0x.message;
 
-import me.tl0x.util.JsonObject;
+import me.tl0x.util.*;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.awt.Color;

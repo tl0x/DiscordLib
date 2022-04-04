@@ -1,4 +1,4 @@
-package me.tl0x.webhook;
+package me.tl0x.util;
 
 import java.awt.*;
 import java.util.ArrayList;

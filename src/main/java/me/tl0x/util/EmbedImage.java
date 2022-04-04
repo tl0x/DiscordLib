@@ -1,4 +1,4 @@
-package me.tl0x.webhook;
+package me.tl0x.util;
 
 public class EmbedImage {
     public String url;
