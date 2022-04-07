@@ -1,5 +1,8 @@
 package me.tl0x.account;
 
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+import me.tl0x.server.DiscordServer;
 import me.tl0x.util.JsonHelper;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -7,6 +10,8 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DiscordAccount {
@@ -128,17 +133,23 @@ public class DiscordAccount {
         this.sendMessage(channelId, content, false);
     }
 
-    public void getServers() throws IOException, MalformedURLException {
+    public List<DiscordServer> getServers() throws IOException, MalformedURLException {
+        List<DiscordServer> discordServers = null;
         URL url = new URL("https://discord.com/api/v6/users/@me/guilds");
         URLConnection connection = url.openConnection();
         connection.addRequestProperty("Content-Type", "application/json");
         connection.addRequestProperty("Authorization", this.TOKEN);
 
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String inputLine;
         while ((inputLine = reader.readLine()) != null) {
-            System.out.println(inputLine);
+            Gson gson = new GsonBuilder().setLenient().create();
+            JsonArray object = JsonParser.parseString(inputLine).getAsJsonArray();
+
+             discordServers = gson.fromJson(object, new TypeToken<List<DiscordServer>>(){}.getType());
         }
+        return discordServers;
     }
 
     public void sendMessage(String channelId, String content, boolean tts) throws IOException {

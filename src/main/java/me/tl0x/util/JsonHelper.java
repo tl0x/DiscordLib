@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Array;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class JsonHelper {
 
@@ -56,15 +53,17 @@ public class JsonHelper {
                 builder.append(quote(Double.toString((Double) val)));
             } else if (val == null) {
                 builder.append("\"null\"");
-            } else if (Objects.requireNonNull(val.getClass().isArray())) {
+            } else if (val.getClass().isArray()) {
                 builder.append("[");
                 int len = Array.getLength(val);
                 for (int j = 0; j < len; j++) {
                     builder.append(Array.get(val, j).toString()).append(j != len - 1 ? "," : "");
                 }
                 builder.append("]");
-            } else {
-                builder.append("");
+            }
+
+            else {
+                System.out.println(val.getClass());
             }
 
             builder.append(++i == entrySet.size() ? "}" : ",");

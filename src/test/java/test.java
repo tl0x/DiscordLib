@@ -1,4 +1,5 @@
 import me.tl0x.account.DiscordAccount;
+import me.tl0x.server.DiscordServer;
 
 import java.io.IOException;
 
@@ -7,6 +8,5 @@ import java.io.IOException;
 public class test {
 
     public static void main(String[] args) throws IOException {
-        DiscordAccount account = new DiscordAccount("");
     }
 }
