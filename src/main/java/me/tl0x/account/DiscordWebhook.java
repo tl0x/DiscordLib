@@ -1,4 +1,4 @@
-package me.tl0x.message;
+package me.tl0x.account;
 
 import me.tl0x.util.*;
 
@@ -61,7 +61,7 @@ public class DiscordWebhook {
 
     // Runs and attempts to send the content.
 
-    public void execute() throws IOException {
+    public void sendPayload() throws IOException {
         if (this.content == null && this.embeds.isEmpty()) {
             throw new IllegalArgumentException("No content given, ignoring request.");
         }
@@ -158,6 +158,7 @@ public class DiscordWebhook {
         OutputStream stream = connection.getOutputStream();
         stream.write(json.toString().getBytes("UTF-8"));
         stream.flush();
+        System.out.println("Payload sent Successfully!");
         stream.close();
 
         connection.getInputStream().close();
