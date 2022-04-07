@@ -1,18 +1,35 @@
 package me.tl0x.util;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class JsonObject {
+public class JsonHelper {
 
-    public final HashMap<String, Object> map = new HashMap<>();
+    public final HashMap<String, Object> map;
+
+    public JsonHelper(HashMap data) {
+        if (data == null) {
+            this.map = new HashMap<>();
+        } else {
+            this.map = data;
+        }
+    }
 
     public void put(String key, Object value) {
         if (value != null) {
             map.put(key, value);
         }
+    }
+
+    public static JsonHelper fromString(String JsonString) {
+        HashMap<String, Object> retMap = new Gson().fromJson(JsonString, new TypeToken<HashMap<String, Object>>() {}.getType());
+
+        return new JsonHelper(retMap);
     }
 
     @Override
@@ -32,7 +49,7 @@ public class JsonObject {
                 builder.append(Integer.valueOf(String.valueOf(val)));
             } else if (val instanceof Boolean) {
                 builder.append(val);
-            } else if (val instanceof JsonObject) {
+            } else if (val instanceof JsonHelper) {
                 builder.append(val.toString());
             } else if (val.getClass().isArray()) {
                 builder.append("[");

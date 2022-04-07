@@ -66,7 +66,7 @@ public class DiscordWebhook {
             throw new IllegalArgumentException("No content given, ignoring request.");
         }
 
-        JsonObject json = new JsonObject();
+        JsonHelper json = new JsonHelper(null);
 
         json.put("content", this.content);
         json.put("username", this.username);
@@ -74,10 +74,10 @@ public class DiscordWebhook {
         json.put("tts", this.tts);
 
         if (!this.embeds.isEmpty()) {
-            List<JsonObject> embedObjects = new ArrayList<>();
+            List<JsonHelper> embedObjects = new ArrayList<>();
 
             for (EmbedObject embed : this.embeds) {
-                JsonObject jsonEmbed = new JsonObject();
+                JsonHelper jsonEmbed = new JsonHelper(null);
 
                 jsonEmbed.put("title", embed.getTitle());
                 jsonEmbed.put("description", embed.getDescription());
@@ -100,7 +100,7 @@ public class DiscordWebhook {
                 List<EmbedField> fields = embed.getFields();
 
                 if (footer != null) {
-                    JsonObject jsonFooter = new JsonObject();
+                    JsonHelper jsonFooter = new JsonHelper(null);
 
                     jsonFooter.put("text", footer.getText());
                     jsonFooter.put("icon_url", footer.getIconUrl());
@@ -108,21 +108,21 @@ public class DiscordWebhook {
                 }
 
                 if (image != null) {
-                    JsonObject jsonImage = new JsonObject();
+                    JsonHelper jsonImage = new JsonHelper(null);
 
                     jsonImage.put("url", image.getUrl());
                     jsonEmbed.put("image", jsonImage);
                 }
 
                 if (thumbnail != null) {
-                    JsonObject jsonThumbnail = new JsonObject();
+                    JsonHelper jsonThumbnail = new JsonHelper(null);
 
                     jsonThumbnail.put("url", thumbnail.getUrl());
                     jsonEmbed.put("thumbnail", jsonThumbnail);
                 }
 
                 if (author != null) {
-                    JsonObject jsonAuthor = new JsonObject();
+                    JsonHelper jsonAuthor = new JsonHelper(null);
 
                     jsonAuthor.put("name", author.getName());
                     jsonAuthor.put("url", author.getUrl());
@@ -130,9 +130,9 @@ public class DiscordWebhook {
                     jsonEmbed.put("author", jsonAuthor);
                 }
 
-                List<JsonObject> jsonFields = new ArrayList<>();
+                List<JsonHelper> jsonFields = new ArrayList<>();
                 for (EmbedField field : fields) {
-                    JsonObject jsonField = new JsonObject();
+                    JsonHelper jsonField = new JsonHelper(null);
 
                     jsonField.put("name", field.getName());
                     jsonField.put("value", field.getValue());

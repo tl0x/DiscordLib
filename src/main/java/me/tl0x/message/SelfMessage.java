@@ -1,6 +1,6 @@
 package me.tl0x.message;
 
-import me.tl0x.util.JsonObject;
+import me.tl0x.util.JsonHelper;
 import me.tl0x.util.EmbedObject;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -59,7 +59,7 @@ public class SelfMessage {
     }
 
     public void sendMessage() throws IOException {
-        JsonObject payload = new JsonObject();
+        JsonHelper payload = new JsonHelper(null);
 
         payload.put("content", this.content);
         payload.put("tts", this.tts);
@@ -72,6 +72,7 @@ public class SelfMessage {
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.addRequestProperty("Content-Type", "application/json");
         connection.addRequestProperty("Authorization", TOKEN);
+        connection.addRequestProperty("User-Agent", "tl0x-SelfMessage");
         connection.setDoOutput(true);
         connection.setRequestMethod("POST");
 
