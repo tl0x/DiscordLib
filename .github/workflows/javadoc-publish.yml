@@ -1,0 +1,22 @@
+name: Deploy Javadoc
+on:
+  push:
+      branches:
+        - main
+        - master
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Javadocs
+         uses: gradle/wrapper-validation-action@v1
+         run: ./gradlew documentation javadoc
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          clean: true
+          folder: build/docs/javadoc
+          target-folder: .
+
