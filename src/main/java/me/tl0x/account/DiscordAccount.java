@@ -13,27 +13,48 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * A useful class used to retrieve information from a Discord Account
+ *
+ * @author Aaron (tl0x)
+ */
 public class DiscordAccount {
 
+    /** The token associated with a Non-bot account **/
     private final String TOKEN;
+
+    /** Json String containing data about the Discord User **/
     private String data;
     private Double flags;
     private boolean isVerified;
     private String bannerHash;
     private String bio;
     private String avatarHash;
+
+    /** The language setting the account is on **/
     private String locale;
     private String discriminator;
     private String username;
     private String bannerColor;
     private String phone;
     private String pronouns;
+
+    /** The account's id, usually a large integer **/
     private String id;
+
+    /** The email associated with the account **/
     private String email;
     private boolean nsfwAllowed;
     private boolean isMfaEnabled;
 
 
+    /**
+     * Class representing a Discord Account, info fetched when Initiated.
+     *
+     * @param token The user token associated with an account
+     * @throws IOException When given an Invalid Token
+     */
     public DiscordAccount(String token) throws IOException {
         this.TOKEN = token;
         URL url = new URL("https://discord.com/api/v6/users/@me");
@@ -128,9 +149,6 @@ public class DiscordAccount {
         return username + "#" + discriminator;
     }
 
-    public void sendMessage(String channelId, String content) throws IOException{
-        this.sendMessage(channelId, content, false);
-    }
 
     public List<DiscordServer> getServers() throws IOException, MalformedURLException {
         List<DiscordServer> discordServers = null;
@@ -151,6 +169,18 @@ public class DiscordAccount {
         return discordServers;
     }
 
+    public void sendMessage(String channelId, String content) throws IOException{
+        this.sendMessage(channelId, content, false);
+    }
+
+    /**
+     * Sends a message to a channel with the given Account Token.
+     *
+     * @param channelId The id of the channel
+     * @param content The message to be sent
+     * @param tts set to True to use tts.
+     * @throws IOException Thrown when given an invalid Channel ID or Token
+     */
     public void sendMessage(String channelId, String content, boolean tts) throws IOException {
 
         String strurl = "https://discordapp.com/api/v6/channels/" + channelId + "/messages";

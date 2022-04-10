@@ -2,6 +2,9 @@ package me.tl0x.util.builder;
 
 import me.tl0x.rpc.DiscordRichPresence;
 
+/**
+ * A non-optional builder for DiscordRichPresence
+ */
 public class RichPrescenceBuilder {
 
     private DiscordRichPresence p;

@@ -10,15 +10,29 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A useful class used for sending payloads to Discord Webhooks.
+ *
+ * @author Aaron (tl0x)
+ */
 public class DiscordWebhook {
 
-    // The main class, probably the only one the end user will use (Except with WebhookBuilder)
-
+    /** The url of the webhook **/
     private final String url;
+
+    /** The message to be sent **/
     private String content;
+
+    /** The name to be used with the webhook. If left blank, it will use the webhook's default name, set when creating a webhook **/
     private String username;
+
+    /** What avatar to use. If left blank, it will use the default avatar. **/
     private String avatarUrl;
+
+    /** Whether it should use Text-To-Speech **/
     private boolean tts;
+
+    /** Any embeds associated with the webhook **/
     private List<EmbedObject> embeds = new ArrayList<>();
 
     public DiscordWebhook(String url) {
@@ -59,8 +73,10 @@ public class DiscordWebhook {
     }
 
 
-    // Runs and attempts to send the content.
-
+    /**
+     * Sends a message given contents and embeds
+     * @throws IOException
+     */
     public void sendPayload() throws IOException {
         if (this.content == null && this.embeds.isEmpty()) {
             throw new IllegalArgumentException("No content given, ignoring request.");

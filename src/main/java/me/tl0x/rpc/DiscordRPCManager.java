@@ -10,6 +10,11 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
+/**
+ * Used for initializing a Discord Rich Presence Instance.
+ *
+ * @author Aaron (tl0x)
+ */
 public class DiscordRPCManager {
 
     private static DiscordLib LIBRARY = loadLibrary();
@@ -43,19 +48,25 @@ public class DiscordRPCManager {
     }
 
     /**
-     * Method to initialize the Discord-RPC.
-     *
-     * @param id       The Application ID
-     * @param callback Any EventHandlers you have. If none, simply pass in an empty Handler.
+     * Starts a DiscordRPC Process
+     * @param id
+     * @param callback
      */
     public static void initialize(String id, DiscordEventHandlers callback) {
         LIBRARY.Discord_Initialize(id, callback, 1, null);
     }
 
+    /**
+     * Runs all registered Discord Event Callbacks
+     */
     public static void runCallbacks() {
         LIBRARY.Discord_RunCallbacks();
     }
 
+    /**
+     * Updates the state of the discord presence
+     * @param presence the state of the discord presence
+     */
     public static void updatePresence(DiscordRichPresence presence) {
         LIBRARY.Discord_UpdatePresence(presence);
     }

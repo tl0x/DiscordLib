@@ -8,10 +8,9 @@ public class RPCTest {
     public static void main(String[] args) throws InterruptedException {
         long start = System.currentTimeMillis();
         DiscordRPCManager.initialize("940786718594969662", new DiscordEventHandlers.Builder().build());
-        DiscordRPCManager.updatePresence(new RichPrescenceBuilder("fortniting")
-                .setBigImage("freddiedonut", "fortniting").setStartTimestamps(start).build());
+        DiscordRPCManager.updatePresence(new RichPrescenceBuilder("I LOVE LUV MICHEAL")
+                .setBigImage("cheng", "Cheng").setStartTimestamps(8).build());
 
-        Thread.sleep(50000);
-
+        Thread.sleep(1000000);
     }
 }
