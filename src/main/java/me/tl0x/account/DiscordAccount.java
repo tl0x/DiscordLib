@@ -29,6 +29,8 @@ public class DiscordAccount {
     private Double flags;
     private boolean isVerified;
     private String bannerHash;
+
+    /** The current user Biography (Or the "About Me" section) **/
     private String bio;
     private String avatarHash;
 
