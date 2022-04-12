@@ -1,6 +1,6 @@
-package me.tl0x.util.builder;
+package me.tl0x.internal.util.builder;
 
-import me.tl0x.rpc.DiscordRichPresence;
+import me.tl0x.internal.rpc.DiscordRichPresence;
 
 /**
  * A non-optional builder for DiscordRichPresence

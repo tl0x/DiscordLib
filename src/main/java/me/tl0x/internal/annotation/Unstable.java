@@ -1,4 +1,4 @@
-package me.tl0x.annotation;
+package me.tl0x.internal.annotation;
 
 import java.lang.annotation.Documented;
 

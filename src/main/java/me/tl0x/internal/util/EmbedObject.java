@@ -1,4 +1,4 @@
-package me.tl0x.util;
+package me.tl0x.internal.util;
 
 import java.awt.*;
 import java.util.ArrayList;

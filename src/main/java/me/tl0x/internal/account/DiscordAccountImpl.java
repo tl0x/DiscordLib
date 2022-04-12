@@ -1,51 +1,37 @@
-package me.tl0x.account;
+package me.tl0x.internal.account;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import me.tl0x.server.DiscordServer;
-import me.tl0x.util.JsonHelper;
+import me.tl0x.api.account.DiscordAccount;
+import me.tl0x.internal.server.DiscordServerImpl;
+import me.tl0x.internal.util.JsonHelper;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
 
-/**
- * A useful class used to retrieve information from a Discord Account
- *
- * @author Aaron (tl0x)
- */
-public class DiscordAccount {
+
+public class DiscordAccountImpl implements DiscordAccount {
 
     /** The token associated with a Non-bot account **/
     private final String TOKEN;
-
-    /** Json String containing data about the Discord User **/
     private String data;
     private Double flags;
     private boolean isVerified;
     private String bannerHash;
-
-    /** The current user Biography (Or the "About Me" section) **/
     private String bio;
     private String avatarHash;
-
-    /** The language setting the account is on **/
     private String locale;
     private String discriminator;
     private String username;
     private String bannerColor;
     private String phone;
     private String pronouns;
-
-    /** The account's id, usually a large integer **/
     private String id;
-
-    /** The email associated with the account **/
     private String email;
     private boolean nsfwAllowed;
     private boolean isMfaEnabled;
@@ -57,7 +43,7 @@ public class DiscordAccount {
      * @param token The user token associated with an account
      * @throws IOException When given an Invalid Token
      */
-    public DiscordAccount(String token) throws IOException {
+    public DiscordAccountImpl(String token) throws IOException {
         this.TOKEN = token;
         URL url = new URL("https://discord.com/api/v6/users/@me");
         URLConnection connection = url.openConnection();
@@ -152,8 +138,8 @@ public class DiscordAccount {
     }
 
 
-    public List<DiscordServer> getServers() throws IOException, MalformedURLException {
-        List<DiscordServer> discordServers = null;
+    public List<DiscordServerImpl> getServers() throws IOException {
+        List<DiscordServerImpl> discordServers = null;
         URL url = new URL("https://discord.com/api/v6/users/@me/guilds");
         URLConnection connection = url.openConnection();
         connection.addRequestProperty("Content-Type", "application/json");
@@ -166,7 +152,7 @@ public class DiscordAccount {
             Gson gson = new GsonBuilder().setLenient().create();
             JsonArray object = JsonParser.parseString(inputLine).getAsJsonArray();
 
-             discordServers = gson.fromJson(object, new TypeToken<List<DiscordServer>>(){}.getType());
+             discordServers = gson.fromJson(object, new TypeToken<List<DiscordServerImpl>>(){}.getType());
         }
         return discordServers;
     }
@@ -175,14 +161,7 @@ public class DiscordAccount {
         this.sendMessage(channelId, content, false);
     }
 
-    /**
-     * Sends a message to a channel with the given Account Token.
-     *
-     * @param channelId The id of the channel
-     * @param content The message to be sent
-     * @param tts set to True to use tts.
-     * @throws IOException Thrown when given an invalid Channel ID or Token
-     */
+
     public void sendMessage(String channelId, String content, boolean tts) throws IOException {
 
         String strurl = "https://discordapp.com/api/v6/channels/" + channelId + "/messages";

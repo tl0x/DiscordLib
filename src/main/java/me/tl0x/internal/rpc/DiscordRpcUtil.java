@@ -1,4 +1,4 @@
-package me.tl0x.rpc;
+package me.tl0x.internal.rpc;
 
 import com.sun.jna.Native;
 import org.apache.commons.lang3.SystemUtils;

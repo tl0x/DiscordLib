@@ -1,4 +1,4 @@
-package me.tl0x.rpc;
+package me.tl0x.internal.rpc;
 
 import com.sun.jna.Library;
 
@@ -7,7 +7,7 @@ import com.sun.jna.Library;
  *
  * @author Aaron (tl0x)
  */
-public class DiscordRpcManager {
+public class DiscordRpcManager{
 
     private static DiscordLib LIBRARY = DiscordRpcUtil.loadLibrary();
 

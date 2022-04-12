@@ -1,4 +1,4 @@
-package me.tl0x.util;
+package me.tl0x.internal.util;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

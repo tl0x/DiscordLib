@@ -1,6 +1,3 @@
-import me.tl0x.account.DiscordAccount;
-import me.tl0x.server.DiscordServer;
-
 import java.io.IOException;
 
 // Literally my first time testing

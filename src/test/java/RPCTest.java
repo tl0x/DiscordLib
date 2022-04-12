@@ -1,6 +1,6 @@
-import me.tl0x.rpc.DiscordEventHandlers;
-import me.tl0x.rpc.DiscordRpcManager;
-import me.tl0x.util.builder.RichPrescenceBuilder;
+import me.tl0x.internal.rpc.DiscordEventHandlers;
+import me.tl0x.internal.rpc.DiscordRpcManager;
+import me.tl0x.internal.util.builder.RichPrescenceBuilder;
 
 public class RPCTest {
 

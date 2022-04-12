@@ -1,4 +1,4 @@
-package me.tl0x.rpc;
+package me.tl0x.internal.rpc;
 
 import java.util.Arrays;
 import java.util.List;

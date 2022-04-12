@@ -1,7 +1,7 @@
-package me.tl0x.util.builder;
+package me.tl0x.internal.util.builder;
 
-import me.tl0x.account.DiscordWebhook;
-import me.tl0x.util.EmbedObject;
+import me.tl0x.internal.account.DiscordWebhookImpl;
+import me.tl0x.internal.util.EmbedObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,13 +56,13 @@ public class WebhookBuilder {
         return this;
     }
 
-    public DiscordWebhook build() {
+    public DiscordWebhookImpl build() {
         if ((this.content == null) && (this.embeds.isEmpty())) {
             throw new IllegalStateException("You must specify content or add an EmbedObject!");
         } else if (this.url == null) {
             throw new IllegalStateException("No discord webhook URL given!");
         } else {
-            DiscordWebhook ret = new DiscordWebhook(this.url);
+            DiscordWebhookImpl ret = new DiscordWebhookImpl(this.url);
             ret.setContent(this.content);
             ret.setUsername(this.username);
             ret.setAvatarUrl(this.avatarUrl);

@@ -1,6 +1,7 @@
-package me.tl0x.server;
+package me.tl0x.internal.server;
 
-import me.tl0x.annotation.Unstable;
+import me.tl0x.api.server.DiscordServer;
+import me.tl0x.internal.annotation.Unstable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 
-public class DiscordServer {
+public class DiscordServerImpl implements DiscordServer {
     private String permissions_new;
     private String id;
     private String name;
@@ -19,7 +20,7 @@ public class DiscordServer {
     private String[] features;
 
 
-    public DiscordServer(String id, String name, String icon, String owner, String permissions, String[] features, String premissions_n) {
+    public DiscordServerImpl(String id, String name, String icon, String owner, String permissions, String[] features, String premissions_n) {
         this.id = id;
         this.name = name;
         this.owner = owner;
@@ -56,7 +57,7 @@ public class DiscordServer {
     // TODO: MAKE THIS WORK
 
     @Unstable
-    public List<DiscordChannel> getDiscordChannels(String token) throws IOException {
+    public List<DiscordChannelImpl> getDiscordChannels(String token) throws IOException {
         // Token is needed to check if you are in the server
 
         URL url = new URL("https://discord.com/api/v6/guilds/" + this.id);

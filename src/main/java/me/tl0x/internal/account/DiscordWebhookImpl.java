@@ -1,6 +1,7 @@
-package me.tl0x.account;
+package me.tl0x.internal.account;
 
-import me.tl0x.util.*;
+import me.tl0x.api.account.DiscordWebhook;
+import me.tl0x.internal.util.*;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.awt.Color;
@@ -10,32 +11,18 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A useful class used for sending payloads to Discord Webhooks.
- *
- * @author Aaron (tl0x)
- */
-public class DiscordWebhook {
 
-    /** The url of the webhook **/
+public class DiscordWebhookImpl implements DiscordWebhook {
+
+
     private final String url;
-
-    /** The message to be sent **/
     private String content;
-
-    /** The name to be used with the webhook. If left blank, it will use the webhook's default name, set when creating a webhook **/
     private String username;
-
-    /** What avatar to use. If left blank, it will use the default avatar. **/
     private String avatarUrl;
-
-    /** Whether it should use Text-To-Speech **/
     private boolean tts;
-
-    /** Any embeds associated with the webhook **/
     private List<EmbedObject> embeds = new ArrayList<>();
 
-    public DiscordWebhook(String url) {
+    public DiscordWebhookImpl(String url) {
         this.url = url;
     }
 
@@ -72,11 +59,6 @@ public class DiscordWebhook {
         this.embeds = embeds;
     }
 
-
-    /**
-     * Sends a message given contents and embeds
-     * @throws IOException
-     */
     public void sendPayload() throws IOException {
         if (this.content == null && this.embeds.isEmpty()) {
             throw new IllegalArgumentException("No content given, ignoring request.");
