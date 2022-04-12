@@ -27,16 +27,12 @@ public class DiscordRichPresence extends Structure {
     public String partyId;
     public int partySize;
     public int partyMax;
-
-    @Deprecated
     public String matchSecret;
     /** Unique hashed string for Spectate button. **/
     public String spectateSecret;
     /** Unique hashed string for chat invitations and Ask to Join. **/
     public String joinSecret;
 
-
-    @Deprecated
     public int instance;
 
     @Override
