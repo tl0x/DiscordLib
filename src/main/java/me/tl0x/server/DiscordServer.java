@@ -52,6 +52,9 @@ public class DiscordServer {
         return features;
     }
 
+
+    // TODO: MAKE THIS WORK
+
     @Unstable
     public List<DiscordChannel> getDiscordChannels(String token) throws IOException {
         // Token is needed to check if you are in the server

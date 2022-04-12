@@ -1,5 +1,8 @@
 package me.tl0x.util;
 
+/**
+ * Represents an Embedded Thumbnail
+ */
 public class EmbedThumbnail {
     public String url;
 

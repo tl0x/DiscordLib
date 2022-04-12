@@ -1,5 +1,8 @@
 package me.tl0x.util;
 
+/**
+ * Represents on Embedded Author
+ */
 public class EmbedAuthor {
     public String name;
     public String url;
@@ -11,14 +14,25 @@ public class EmbedAuthor {
         this.iconUrl = iconUrl;
     }
 
+    /**
+     * Gets the name of the Author
+     * @return The name of the Author
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns the url associated with the Author
+     * @return
+     */
     public String getUrl() {
         return url;
     }
 
+    /**
+     * @return the url associated with the icon of the Author.
+     */
     public String getIconUrl() {
         return iconUrl;
     }

@@ -1,5 +1,8 @@
 package me.tl0x.util;
 
+/**
+ * Represents a Webhook Footer
+ */
 public class WebhookFooter {
     public String text;
     public String iconUrl;
@@ -9,10 +12,16 @@ public class WebhookFooter {
         this.iconUrl = iconUrl;
     }
 
+    /**
+     * Returns the text content of the Footer
+     */
     public String getText() {
         return text;
     }
 
+    /**
+     * Returns the url of the icon
+     */
     public String getIconUrl() {
         return iconUrl;
     }

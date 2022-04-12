@@ -1,5 +1,8 @@
 package me.tl0x.util;
 
+/**
+ * Represents an Embedded Image
+ */
 public class EmbedImage {
     public String url;
 
@@ -7,6 +10,9 @@ public class EmbedImage {
         this.url = url;
     }
 
+    /**
+     * @return associated url of the image
+     */
     public String getUrl() {
         return url;
     }

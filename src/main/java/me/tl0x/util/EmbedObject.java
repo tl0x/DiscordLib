@@ -4,6 +4,9 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a whole Embedded Object
+ */
 public class EmbedObject {
     private String title;
     private String description;

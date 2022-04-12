@@ -6,6 +6,9 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Array;
 import java.util.*;
 
+/**
+ * Utilities to make working with Json less annoying.
+ */
 public class JsonHelper {
 
     public final HashMap<String, Object> map;
