@@ -1,7 +1,5 @@
 package me.tl0x.api.server;
 
-import me.tl0x.internal.server.DiscordChannelImpl;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -19,5 +17,5 @@ public interface DiscordServer {
 
     String[] getFeatures();
 
-    List<DiscordChannelImpl> getDiscordChannels(String token) throws IOException;
+    List<DiscordChannel> getDiscordChannels(String token) throws IOException;
 }

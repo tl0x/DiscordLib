@@ -1,8 +1,8 @@
 package me.tl0x.api.account;
 
-import me.tl0x.internal.server.DiscordServerImpl;
 
-import javax.annotation.Nullable;
+import me.tl0x.api.server.DiscordServer;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -13,7 +13,6 @@ import java.util.List;
  */
 public interface DiscordAccount {
 
-    @Nullable
     Double getFlags();
 
     /**
@@ -51,7 +50,6 @@ public interface DiscordAccount {
 
     String getPhone();
 
-    @Nullable
     String getPronouns();
 
     String getUsername();
@@ -72,5 +70,5 @@ public interface DiscordAccount {
      * @return A list of DiscordServers
      * @throws IOException
      */
-    List<DiscordServerImpl> getServers() throws IOException;
+    List<DiscordServer> getServers() throws IOException;
 }

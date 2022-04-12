@@ -18,6 +18,20 @@ dependencies {
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
 }
 
+build {
+    dependsOn(jar)
+
+    jar.mustRunAfter(clean)
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.runtimeClasspath
+    options.encoding = "UTF-8"
+    options.memberLevel = JavadocMemberLevel.PUBLIC
+    setTitle("DiscordLib ${project.library_version}")
+}
+
 test {
     useJUnitPlatform()
 }

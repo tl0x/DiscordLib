@@ -3,6 +3,7 @@ package me.tl0x.internal.account;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import me.tl0x.api.account.DiscordAccount;
+import me.tl0x.api.server.DiscordServer;
 import me.tl0x.internal.server.DiscordServerImpl;
 import me.tl0x.internal.util.JsonHelper;
 
@@ -138,7 +139,7 @@ public class DiscordAccountImpl implements DiscordAccount {
     }
 
 
-    public List<DiscordServerImpl> getServers() throws IOException {
+    public List getServers() throws IOException {
         List<DiscordServerImpl> discordServers = null;
         URL url = new URL("https://discord.com/api/v6/users/@me/guilds");
         URLConnection connection = url.openConnection();

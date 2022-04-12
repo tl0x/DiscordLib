@@ -57,7 +57,7 @@ public class DiscordServerImpl implements DiscordServer {
     // TODO: MAKE THIS WORK
 
     @Unstable
-    public List<DiscordChannelImpl> getDiscordChannels(String token) throws IOException {
+    public List getDiscordChannels(String token) throws IOException {
         // Token is needed to check if you are in the server
 
         URL url = new URL("https://discord.com/api/v6/guilds/" + this.id);
